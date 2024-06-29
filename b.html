@@ -1,0 +1,165 @@
+<style>
+nav {
+        text-align: center;
+        margin-top: 20px; 
+font-size: 1.5em;
+ }
+
+    nav ul {
+        list-style: none;
+        
+    }
+
+    nav a {
+        text-decoration: none;
+      color: lightblue;
+margin-right:35px;
+           }
+ nav a:hover{
+      color: lightgray;
+}
+    nav li {
+
+        display: inline; 
+       
+    }
+
+        body {
+            text-align: center;
+        }
+        
+        .k {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        button {
+border-radius: 200px;
+
+            margin: 25px;
+            color: white;
+            border: none;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: lightblue;
+
+        }
+
+
+        .h22 {
+            text-align: center;
+        }
+
+        h2 {
+            background: lightblue;
+        }
+
+        .image img {
+            width: 100%;
+            height: 150px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .j {
+            font-size: 20px;
+            left: 35%;
+            color: lightgray;
+            position: absolute;
+            top: 25px;
+            letter-spacing: 9px;
+}
+    </style>
+
+<body>
+    <header>
+        <div class="image">
+            <img src="blue.jpg">
+        </div>
+        <div class="j">
+            <h1>binary numbers</h1>
+        </div> 
+    </header>
+
+    <main>
+  <h2 class="h22">Binary to Decimal</h2>
+        <form id="binaryForm" onsubmit="btod(event)">
+            <label for="binaryInput">Enter binary digit:</label><br>
+            <input type="text" id="binaryInput" name="binary"><br>
+            <button type="submit">Convert</button>
+        </form>
+        <p id="result"></p>
+  <h2 class="h22">Decimal to Binary</h2>
+
+    <form onsubmit="convertDecimalToBinary(event)">
+        <label for="decimalInput">Enter decimal number:</label><br>
+        <input type="number" id="decimalInput" name="decimal"><br>
+        <button type="submit">Convert</button>
+    </form>
+    <p id="Result2"></p>
+  <h2 class="h22">Binary cal</h2>
+        <form id="binaryForm" onsubmit="btodcal(event)">
+            <label for="biCal">Enter binary digits:</label><br>
+            <input type="text" id="binaryInput1" name="binary"> 
+ <input type="text" id="binaryInput2" name="binary"><br>
+            <button type="submit" id ="add">+</button>
+   <button type="submit" id= "sub">-</button>
+        </form>
+        <p id="result3"> </p>
+     <p id="result4"> </p>
+    <script>
+        function convertDecimalToBinary(event) {
+            event.preventDefault(); 
+            
+            var decimalInput = document.getElementById("decimalInput").value;
+        
+            var binaryResult = (+decimalInput).toString(2);
+            
+          
+            document.getElementById("Result2").textContent = binaryResult;
+        }
+
+        function btod(event) {
+            event.preventDefault(); 
+            
+    
+            var binaryIn = document.getElementById("binaryInput").value;
+            
+        
+            var parsedInt = parseInt(binaryIn, 2);
+            
+            
+            document.getElementById("result").textContent = parsedInt;
+}  
+
+function btodcal(event) {
+            event.preventDefault(); 
+            
+            var binaryInput1 = document.getElementById("binaryInput1").value;
+            var binaryInput2 = document.getElementById("binaryInput2").value;
+            
+         
+            var num1 = parseInt(binaryInput1, 2);
+            var num2 = parseInt(binaryInput2, 2);
+            
+            var result;
+            
+            if (event.submitter.id === "add") {
+               
+                result = num1 + num2;
+          } else if (event.submitter.id === "sub") {
+          
+                result = num1 - num2;
+
+            }
+            
+          
+            document.getElementById("result3").textContent = "binary Result= " + result.toString(2);
+ document.getElementById("result4").textContent = "decimal Result= " + result;
+        }  
+  </script>
+            
